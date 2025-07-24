@@ -1,0 +1,23 @@
+Amortized Analysis
+
+Average Time:
+Hash Tables, disjoint Sets, Splay trees.
+
+The Averaging method:
+Suppose new hash table has one bucket.
+Any operation that doesn't resize table takes O(1) time (lets said <= 1 second)
+
+N buckets & n items
+Suppose insert doubles size of table (before adding new item) if n=N
+Load factor can't exceed one
+Resizing takes <= 2n seconds
+When resizing done, N doubles,n++.
+
+Construct an empty hash table, perform i inserts, then, n= i  is and N is smallest power of 2 that is >= n.
+Total seconds for all resizing operation is 2 + 4 + 8 +... +N/4 + N/2 + N= 2N-2
+Cost of i inserts is <= i+ 2n -2 seconds
+N < 2n = 2i O(5i-2) = O(i)
+
+Average running time of insert = O(i)/ i = O(1).
+Amortized running time of insert <= 0(1);
+Worst-case time <= O(n)
